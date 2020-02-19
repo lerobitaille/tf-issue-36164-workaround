@@ -25,7 +25,7 @@ BATCH_SIZE = 32
 
 def transform_with_numpy(
         split_random_function=False,
-        use_determinist_factor=False,
+        use_deterministic_factor=False,
         remove_contrast_function=False,
         use_op_seed=False):
     def transform(x):
@@ -35,7 +35,7 @@ def transform_with_numpy(
         # A random TF function
         seed = DEFAULT_OP_SEED if use_op_seed else None
         if split_random_function:
-            if use_determinist_factor:
+            if use_deterministic_factor:
                 factor = 0.5
             else:
                 factor = tf.random.uniform([], seed=seed)
@@ -103,12 +103,12 @@ def function(seed_func):
 
 
 @profile
-def function_determinist(seed_func):
+def function_deterministic(seed_func):
     seed_func()
     T = transform_with_numpy(
         split_random_function=True,
-        use_determinist_factor=True)
-    print(f'function_determinist')
+        use_deterministic_factor=True)
+    print(f'function_deterministic')
     get_examples(T)
 
 
@@ -177,7 +177,7 @@ if __name__ == '__main__':
     if func_num == 0:
         function(seed_func)
     elif func_num == 1:
-        function_determinist(seed_func)
+        function_deterministic(seed_func)
     elif func_num == 2:
         function_only_random_factor(seed_func)
     else:

@@ -16,7 +16,7 @@ mprof plot -o figures/global_function_with_seed_and_conversion && rm ./*.dat
 mprof run --python test_local_conditions.py tf_get_seed 0
 mprof plot -o figures/local_tf_get_seed_function && rm ./*.dat
 mprof run --python test_local_conditions.py tf_get_seed 1
-mprof plot -o figures/local_tf_get_seed_function_determinist && rm ./*.dat
+mprof plot -o figures/local_tf_get_seed_function_deterministic && rm ./*.dat
 mprof run --python test_local_conditions.py tf_get_seed 2
 mprof plot -o figures/local_tf_get_seed_function_only_random_factor && rm ./*.dat
 mprof run --python test_local_conditions.py tf_get_seed 3
@@ -26,7 +26,7 @@ mprof plot -o figures/local_tf_get_seed_function_only_random_factor_op_seed && r
 mprof run --python test_local_conditions.py patched_get_seed 0
 mprof plot -o figures/local_patched_get_seed_function && rm ./*.dat
 mprof run --python test_local_conditions.py patched_get_seed 1
-mprof plot -o figures/local_patched_get_seed_function_determinist && rm ./*.dat
+mprof plot -o figures/local_patched_get_seed_function_deterministic && rm ./*.dat
 mprof run --python test_local_conditions.py patched_get_seed 2
 mprof plot -o figures/local_patched_get_seed_function_only_random_factor && rm ./*.dat
 mprof run --python test_local_conditions.py patched_get_seed 3
